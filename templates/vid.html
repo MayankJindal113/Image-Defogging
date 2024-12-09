@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defogging Website</title>
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#defog">Defog Image</a>
+        <a href="#history">Archive</a>
+    </div>
+
+
+       <h1 id = "title_">Image Defogging System</h1>
+
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+         <label class="custom-file-upload">
+             Upload Image
+             <input type="file" name="image" id="imageInp" accept="image/*" onchange="showFileName()">
+         </label>
+         <div id="file-name"></div>
+         <button type="submit">Show Defogged Output</button>
+     </form>
+     {% if original_img %}
+     <div class="container">
+
+            
+            <div class = "inp_img">
+                <h2>Original Image:</h2>
+                <img src="data:image/png;base64,{{ original_img }}" alt="Original Image">
+            </div>
+            
+            
+            {% if img_data %}
+            <div class = "out_img">
+                <h2>Processed Image:</h2>
+                <img src="data:image/png;base64,{{ img_data }}" alt="Processed Image">
+            </div>
+            {% endif %} 
+
+    </div>
+    {% endif %}
+    
+</body>
+</html> 

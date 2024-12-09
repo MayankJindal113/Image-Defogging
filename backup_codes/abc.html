@@ -4,7 +4,8 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Defogging Website</title>
-     <style>
+
+    <style>
 
         body {
            font-family: monospace;
@@ -51,19 +52,13 @@
          button:hover {
              background-color: #59276a;
          }
-         /* Image Container */
+
          .image-container {
              display: flex;
              justify-content: center;
              gap: 30px;
              margin-top: 20px;
          }
-         /* img {
-             max-width: 100%;
-             border: 3px solid #005f99;
-             border-radius: 8px;
-             transition: transform 0.3s ease;
-         } */
  
          img {
           width: 90%;
@@ -75,7 +70,6 @@
          img:hover {
              transform: scale(1.05);
          }
-         /* Navbar  */
          .navbar {
              background-color: #474747;
              overflow: hidden;
@@ -93,7 +87,6 @@
          .navbar a:hover {
              background-color: #59276a;
          }
-         /* Container for content */
          .container {
           margin: 20px auto;
           max-width: 90%;
@@ -113,7 +106,6 @@
             display: none;
         }
 
-        /* Custom button to trigger the file input */
         .custom-file-upload {
             background-color: #4b4c4d;
             color: white;
@@ -136,7 +128,6 @@
             outline: none;
         }
 
-        /* Display the file name after selection */
         #file-name {
             margin-top: 10px;
             font-size: 14px;
@@ -159,90 +150,44 @@
 
      </style>
 </head>
-<body>
+ <body>
+ 
      <div class="navbar">
          <a href="#home">Home</a>
          <a href="#defog">Defog Image</a>
          <a href="#history">Archive</a>
      </div>
 
-     <h1 id="title_">Image Defogging System</h1>
+        <h1 id = "title_">Image Defogging System</h1>
 
-     <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
           <label class="custom-file-upload">
               Upload Image
               <input type="file" name="image" id="imageInp" accept="image/*">
           </label>
           <label class="custom-file-upload">
-              Upload Video
-              <input type="file" name="video" id="videoInp" accept="video/*">
-          </label> 
-        <div id="file-name"></div>
+            Upload Video
+            <input type="file" name="video" id="videoInp" accept="video/*">
+            </label>    
+          <!-- <div id="file-name"></div> -->
           <button type="submit">Show Defogged Output</button>
-     </form> 
-
-     <!-- Display Original and Processed Image -->
-     <!-- {% if original_img %}
-        <div class="image-container">
-             <div>
+        </form> 
+      
+      <!--  logic to display the input image and the output processed image -->
+      {% if original_img %}
+        <div class="container">
+             <div class = "inp_img">
                  <h2>Original Image:</h2>
                  <img src="data:image/png;base64,{{ original_img }}" alt="Original Image">
              </div>
              {% if img_data %}
-             <div>
+             <div class = "out_img">
                  <h2>Processed Image:</h2>
                  <img src="data:image/png;base64,{{ img_data }}" alt="Processed Image">
              </div>
-             {% endif %}
+             {% endif %} 
         </div>
-     {% endif %} -->
-
-     {% if original_img %}
-     <div class="container">
-          <div class = "inp_img">
-              <h2>Original Image:</h2>
-              <img src="data:image/png;base64,{{ original_img }}" alt="Original Image">
-          </div>
-          {% if img_data %}
-          <div class = "out_img">
-              <h2>Processed Image:</h2>
-              <img src="data:image/png;base64,{{ img_data }}" alt="Processed Image">
-          </div>
-          {% endif %} 
-     </div>
-  {% endif %}
-
-
-     <!-- Display Processed Video -->
-     <!-- {% if video_path %}
-        <div class="video-container">
-            <h2>Processed Video:</h2>
-            <video controls autoplay>
-                <source src="{{ video_path }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-     {% endif %} -->
-        {% if original_video_path and video_path %}
-        <div class="video-container">
-         <div>
-             <h2>Original Video:</h2>
-             <video controls autoplay loop>
-                 <source src="{{ original_video_path }}" type="video/mp4">
-                 Your browser does not support the video tag.
-             </video>
-         </div>
-         <div>
-             <h2>Processed Video:</h2>
-             <video controls autoplay loop>
-                 <source src="{{ video_path }}" type="video/mp4">
-                 Your browser does not support the video tag.
-             </video>
-         </div>
-        </div>
-        {% endif %}
-
-
-</body>
-</html>
-
+     {% endif %}
+     
+ </body>
+ </html> 
