@@ -181,21 +181,6 @@
           <button type="submit">Show Defogged Output</button>
      </form> 
 
-     <!-- Display Original and Processed Image -->
-     <!-- {% if original_img %}
-        <div class="image-container">
-             <div>
-                 <h2>Original Image:</h2>
-                 <img src="data:image/png;base64,{{ original_img }}" alt="Original Image">
-             </div>
-             {% if img_data %}
-             <div>
-                 <h2>Processed Image:</h2>
-                 <img src="data:image/png;base64,{{ img_data }}" alt="Processed Image">
-             </div>
-             {% endif %}
-        </div>
-     {% endif %} -->
 
      {% if original_img %}
      <div class="container">
@@ -225,20 +210,31 @@
      {% endif %} -->
         {% if original_video_path and video_path %}
         <div class="video-container">
-         <div>
+         <!-- <div>
              <h2>Original Video:</h2>
              <video controls autoplay loop>
                  <source src="{{ original_video_path }}" type="video/mp4">
                  Your browser does not support the video tag.
              </video>
-         </div>
+         </div> -->
          <div>
              <h2>Processed Video:</h2>
              <video controls autoplay loop>
-                 <source src="{{ video_path }}" type="video/mp4">
+                 <!-- <source src="{{ video_path }}" type="video/mp4"> -->
+                 <source src="D:\Projects\Flask ML\processed\input_abc_processed.mp4" type="video/mp4">
                  Your browser does not support the video tag.
              </video>
          </div>
+
+         <div>
+            <h2>Processed Video:</h2>
+            <video controls autoplay loop>
+                <!-- <source src="{{ video_path }}" type="video/mp4"> -->
+                <source src="D:\Projects\Flask ML\processed\input_abc_processed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
         </div>
         {% endif %}
 
