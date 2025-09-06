@@ -12,7 +12,8 @@
            margin: 0;
            padding: 0;
            color: #333;  
-           /* background-image: url('fog.png'); */
+           /* background-image: url('fog.png');  */
+           /* background-image:url_for('static', filename='process/fog.png'); */
            background-size: cover;     
            background-repeat: no-repeat;
            background-position: center;  
@@ -179,8 +180,13 @@
           </label> 
         <div id="file-name"></div>
           <button type="submit">Show Defogged Output</button>
-     </form> 
+     </form>     
 
+    <!-- <video autoplay controls width="640" height="360">
+        <source src="{{ url_for('static', filename='process/abc.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+     -->
 
      {% if original_img %}
      <div class="container">
@@ -198,42 +204,28 @@
   {% endif %}
 
 
-     <!-- Display Processed Video -->
-     <!-- {% if video_path %}
-        <div class="video-container">
-            <h2>Processed Video:</h2>
-            <video controls autoplay>
-                <source src="{{ video_path }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-     {% endif %} -->
+ <!-- <div class="container">
+    <div class = "inp_img">
+        <h2>Original Image:</h2>
+        <img src="{{ url_for('static', filename='car.png') }}" alt="Original Image">
+    </div>
+
+    <div class = "out_img">
+        <h2>Processed Image:</h2>
+        <img src="{{ url_for('static', filename='carf.png') }}" alt="Original Image">
+    </div>
+</div> -->
+     
         {% if original_video_path and video_path %}
         <div class="video-container">
-         <!-- <div>
-             <h2>Original Video:</h2>
-             <video controls autoplay loop>
-                 <source src="{{ original_video_path }}" type="video/mp4">
-                 Your browser does not support the video tag.
-             </video>
-         </div> -->
+     
          <div>
              <h2>Processed Video:</h2>
              <video controls autoplay loop>
-                 <!-- <source src="{{ video_path }}" type="video/mp4"> -->
-                 <source src="D:\Projects\Flask ML\processed\input_abc_processed.mp4" type="video/mp4">
+                 <source src="{{ video_path }}" type="video/mp4">
                  Your browser does not support the video tag.
              </video>
          </div>
-
-         <div>
-            <h2>Processed Video:</h2>
-            <video controls autoplay loop>
-                <!-- <source src="{{ video_path }}" type="video/mp4"> -->
-                <source src="D:\Projects\Flask ML\processed\input_abc_processed.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
 
         </div>
         {% endif %}
@@ -241,4 +233,3 @@
 
 </body>
 </html>
-

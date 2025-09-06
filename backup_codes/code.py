@@ -48,8 +48,8 @@ def after_request(response):
 def preprocess_image(image_path):
     try:
         image = Image.open(image_path).convert('RGB')
-        image = image.resize((192, 128))  # Resize to model input size 256x512
-        # image = image.resize((512, 256))  # Resize to model input size 256x512
+        # image = image.resize((192, 128))  # Resize to model input size 256x512
+        image = image.resize((512, 256))  # Resize to model input size 256x512
 
         image = np.array(image) / 255.0  # Normalize to [0, 1]
         image = np.expand_dims(image, axis=0)  # Add batch dimension
@@ -65,7 +65,7 @@ def process_image(filepath):
         return None, None
     
     try:
-        processed_image = model1.predict(input_image)
+        processed_image = model3.predict(input_image)
         reshaped_image = np.squeeze(input_image, axis=0)
         reshaped_image = (reshaped_image * 255).astype(np.uint8)
         reshaped_image = Image.fromarray(reshaped_image)
@@ -197,4 +197,7 @@ def static_files(filename):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
 
